@@ -1,0 +1,8 @@
+# Server data (world, configs, logs, etc.)
+data/
+
+# Keep the mods folder tracked but ignore its contents if desired
+# mods/*.jar
+
+# OS
+.DS_Store

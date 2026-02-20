@@ -1,0 +1,53 @@
+# Modrinth mod slugs — one per line
+# Find slugs at https://modrinth.com (the part after /mod/ in the URL)
+# Blank lines and comments are ignored
+
+# Performance
+ferrite-core
+# krypton-fnp
+modernfix
+
+# Mods
+appleskin
+accessories:beta
+citadel-(1.21.1-port)
+alexs-mobs(1.21.1)
+amendments
+another-furniture
+artifacts
+biomes-o-plenty:8vIRXPpR
+camera-mod:neoforge-1.21.1-1.0.21
+clumps
+corpse:neoforge-1.21.1-1.1.13
+curios
+decocraft
+framedblocks
+geckolib
+glitchcore:beta
+irons-spells-n-spellbooks
+jade
+jei:beta
+lets-do-furniture
+natures-compass
+paragliders
+patchouli
+ping-wheel:Ayj3A9qT
+playeranimator:beta
+simple-hats
+supplementaries
+terrablender:beta
+travelersbackpack
+owo-lib:beta
+waystones
+xaeros-minimap
+xaeros-world-map
+
+# server only
+skinrestorer
+
+# client-only mods
+# chat-heads
+# entityculling
+# inventory-profiles-next
+# just-zoom
+# sodium
