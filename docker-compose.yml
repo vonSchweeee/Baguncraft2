@@ -7,19 +7,24 @@ services:
     restart: unless-stopped
     ports:
       - "25565:25565"
+      - "24454:24454/udp"
     environment:
       EULA: "TRUE"
       TYPE: NEOFORGE
       VERSION: "1.21.1"
       NEOFORGE_VERSION: latest
       # Server settings
-      MEMORY: 5G
-      MAX_PLAYERS: 12
-      MOTD: "Bagunserver2"
+      INIT_MEMORY: 4500M
+      MAX_MEMORY: 7300M
+      MAX_PLAYERS: 10
+      MOTD: "\u00A72Baguncraft 2 \u00A78|\u00A7c O inimigo agora é outro"
       DIFFICULTY: normal
       GAMEMODE: survival
-      ALLOW_FLIGHT: "false"
+      ALLOW_FLIGHT: "true"
       ONLINE_MODE: "false"
+      RESOURCE_PACK: "https://cdn.modrinth.com/data/g6UiPfKR/versions/eZnmEn91/Hellim%27s%20Xaero%27s%20Maps%20Mob%20Icons%20v1.4.zip"
+      RESOURCE_PACK_SHA1: "b9921ab3ad489d8c3a36a363a8ddf1482d7872f3"
+      RESOURCE_PACK_ENFORCE: "false"
       # Ops / whitelist (comma-separated player names or UUIDs)
       # OPS: "YourUsername"
       # WHITELIST: "Player1,Player2"
@@ -27,7 +32,31 @@ services:
       MODRINTH_PROJECTS: "@/mods.txt"
       MODRINTH_DOWNLOAD_DEPENDENCIES: required
       MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE: beta
+      VIEW_DISTANCE: 11
+      SIMULATION_DISTANCE: 11
     volumes:
       - ./data:/data
       - ./mods.txt:/mods.txt:ro
       - ./mods:/mods
+  backups:
+    image: itzg/mc-backup
+    restart: unless-stopped
+    depends_on:
+      mc:
+        condition: service_healthy
+    environment:
+      BACKUP_INTERVAL: "2h"
+      RCON_HOST: mc
+      PRUNE_BACKUPS_COUNT: 4
+      INITIAL_DELAY: "7m"
+      PAUSE_IF_NO_PLAYERS: "true"
+    volumes:
+      - ./data:/data:ro
+      - ./backups:/backups
+
+  playit:
+    image: ghcr.io/playit-cloud/playit-agent:0.17
+    network_mode: host
+    environment:
+    - SECRET_KEY=your_playit_secret_key_here
+  

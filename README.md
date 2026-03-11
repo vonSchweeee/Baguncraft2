@@ -46,6 +46,9 @@ This has not yet been tested if it actually works, so maybe something will break
 ```bash
 docker compose exec mc rcon-cli <command>
 
+# attach
+docker compose exec mc rcon-cli
+
 # Examples
 docker compose exec mc rcon-cli op YourUsername
 docker compose exec mc rcon-cli whitelist add Player

@@ -4,5 +4,8 @@ data/
 # Keep the mods folder tracked but ignore its contents if desired
 # mods/*.jar
 
+# Backups
+backups/
+
 # OS
 .DS_Store
